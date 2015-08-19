@@ -1,0 +1,115 @@
+.app-news {
+    background-color: $white;
+}
+
+.app-news__item {
+    position: relative;
+    display: table;
+    width: 100%;
+    border-top: 1px solid rgba($dusty-gray, .1);
+
+    &__icon {
+        width: 30px;
+        display: table-cell;
+        vertical-align: middle;
+        padding: $distance 0 $distance $gutter;
+
+        span  {
+            display: block;
+            width: inherit;
+        }
+
+        .icon {
+            fill: $dusty-gray;
+        }
+    }
+
+    &__content {
+        display: table-cell;
+        width: 100%;
+        vertical-align: middle;
+
+        &__box {
+            box-sizing: border-box;
+            padding: $distance $gutter; 
+            overflow: hidden;
+
+            .js-container & {
+                max-height: $news-item-max-height;
+            }
+
+            .-expanded & {
+                max-height: none;
+            }
+        }
+
+        h1 {
+            margin-bottom: $distance/2;
+            color: $mine-shaft;
+        }
+
+        p {
+            color: $dusty-gray;
+
+            & + p {
+                margin-top: $distance/2;
+            }
+        }
+    }
+
+    &__follow {
+        display: table-cell;
+        width: $gutter;
+        padding-right: $gutter;
+        vertical-align: middle;
+        text-align: center;
+
+        .icon {
+            width: 8px;
+            height: 12px;
+            fill: $dusty-gray;
+        }
+    }
+
+    &__more {
+        display: none;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 44px;
+        line-height: 60px;
+        text-align: center;
+        color: $black;
+        background-image: linear-gradient(rgba($white,0) 0%, rgba($white, 1) 55%);
+        text-align: center;
+        cursor: pointer;
+
+        .-collapsed & {
+            display: block;
+        }
+
+        .-expanded & {
+            display: block;
+            position: relative;
+            margin-top: (-$distance);
+            line-height: 44px;
+            
+            &:after {
+                content: '▲';
+            }
+        }
+
+        &:after {
+            display: inline;
+            content: '▼';
+        }
+    }
+}
+
+.app-news__archive {
+    display: block;
+    padding: $distance $gutter;
+    border-top: 1px solid rgba($dusty-gray, .1);
+    color: $guardsman-red;
+}

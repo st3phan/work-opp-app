@@ -1,0 +1,57 @@
+// Colors
+// --------------------------------------------------
+$white: rgb(255,255,255) !default;
+$black: rgb(0,0,0) !default;
+
+$woodsmoke: #16191d;
+$mirage: #191f26;
+$ebony-clay: #29343f;
+$gull-gray: #97aaba;
+
+$gallery: #eee;
+$dodger-blue: #2fcbff;
+$lima: #86e01b;
+$amber: #ffc300;
+$yellow-sea: #ffb000;
+$web-orange: #ffa300;
+$guardsman-red: #d30000;
+
+$tarawera: #053b4c;
+$verdun-green: #2b4c00;
+$dusty-gray: #999999;
+$tundora: #444444;
+$mine-shaft: #333333;
+$saddle-brown: #5c4a00;
+
+$pacific-blue: #0098c1;
+$anakiwa: #90e4ff;
+
+$body-color: $ebony-clay;
+
+// text
+$header-color: $black;
+$text-color: $black;
+$link-color: $pacific-blue;
+
+// icons
+$icon-color: $black;
+
+
+$message-color: $gallery;
+$question-color: $dodger-blue;
+$question-text-color: $tarawera;
+$idea-color: $amber;
+$idea-text-color: $saddle-brown;
+$answer-color: $lima;
+$answer-text-color: $verdun-green;
+$idea-answer-color: $yellow-sea;
+$group-idea-color: $web-orange;
+
+$group-idea-rate-color: $amber;
+$group-idea-rate-vote-1-color: mix(#FF930D, $group-idea-rate-color, 20%);
+$group-idea-rate-vote-2-color: mix(#FF930D, $group-idea-rate-color, 50%);
+$group-idea-rate-vote-3-color: $lima;
+$group-idea-rate-vote-4-color: $guardsman-red;
+
+$form-error-color: $guardsman-red;
+$push-message-color: $black;

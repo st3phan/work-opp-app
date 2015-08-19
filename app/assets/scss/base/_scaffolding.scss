@@ -1,0 +1,115 @@
+html {
+    -webkit-font-smoothing: subpixel-antialiased;  
+    text-rendering: optimizeLegibility;
+    font-size: $base-font-size;
+    line-height: $base-line-height;
+    color: $text-color;
+    height: 100%;
+
+    &.touch {
+        -webkit-overflow-scrolling: touch;
+        -webkit-tap-highlight-color:rgba(0,0,0,0);
+        // -webkit-touch-callout:none;
+        // -webkit-user-select: none; 
+    }
+}
+
+body {
+    box-sizing: border-box;
+    background-image: radial-gradient(center, ellipse cover, rgba($white,.15) 0%,rgba($white,0) 85%);
+    overflow-x: hidden;
+    height: 100%;
+    background-color: $body-color;
+    background-position: fixed;
+    padding: $masthead-height 0 0 0;
+
+    &.-loading {
+        
+        &:before {
+            z-index: 10000;
+            content: "";
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background-color: rgba($body-color, .8);
+        }
+    }
+
+    &.-no-connection {
+        @extend body.-loading;
+
+        .message {
+            z-index: 10001;
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+
+            .text {
+                @include center;
+                font-size: rem-calc($double-pica);
+                color: $white;
+                text-align: center;
+                font-weight: bold;
+            }
+        }
+    }
+    
+    &:after {
+        display: none;
+        content: 'none';
+        
+        @media #{$small-up} {
+            content: 'small-up';
+        }
+
+        @media #{$medium-up} {
+            content: 'medium-up';
+        }
+        
+        @media #{$large-up} {
+            content: 'large-up';
+        }
+        
+        @media #{$xlarge-up} {
+            content: 'xlarge-up';
+        }
+        
+        @media #{$xxlarge-up} {
+            content: 'xxlarge-up';
+        }
+    }
+}
+
+ul,
+ol,
+li,
+dt,
+dl,
+dd {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+a {
+    color: $text-color;
+    text-decoration: none;
+    outline: 0;
+}
+
+img {
+    vertical-align: bottom;
+}
+
+.no-js svg,
+.no-svg svg {
+    display: none;
+}
+
+.svg svg + .svg-fallback {
+    display: none;
+}

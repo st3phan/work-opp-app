@@ -1,0 +1,45 @@
+body {
+    font-family: $font-stack;
+    font-weight: normal;
+}
+
+h1,h2,h3,h4,h5,h6 {
+    margin: 0;
+    color: $header-color;
+    font-weight: bold;
+    font-family: $font-stack;
+}
+
+h1,
+.like-h1 {
+    font-size: rem-calc($double-english);
+}
+
+h2,
+.like-h2 {
+    font-size: rem-calc($paragon);
+}
+
+h3,
+.like-h3 {
+    font-size: rem-calc($great-primer);
+}
+
+h4,
+.like-h4 {
+    font-size: rem-calc($columbian);
+}
+
+h5,
+.like-h5 {
+    font-size: rem-calc($columbian);
+}
+
+h6,
+.like-h6 {
+    font-size: rem-calc($columbian);
+}
+
+p {
+    margin: 0;
+}

@@ -1,0 +1,8 @@
+.app-page_group-ideas {
+    @include clear;
+    padding: $distance $gutter $distance;
+
+    &.-has-confirm {
+        padding-bottom: $masthead-height+$distance;
+    }
+}

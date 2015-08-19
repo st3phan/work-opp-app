@@ -1,0 +1,354 @@
+.app-cloudlet {
+    @include clear;
+    position: relative;
+    display: table;
+    width: 100%;
+
+    &:after {
+        content: '';
+        position: relative;
+        float: left;
+        margin-left: $gutter;
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 16px 11px 0 11px;
+        -moz-transform: scale(.9999);
+    }
+
+    & {
+        &:after {
+            border-color: $message-color rgba(black,0) rgba(black,0) rgba(black,0);
+        }
+    }
+
+    &.-question {
+        &:after {
+            border-top-color: $question-color;
+        }
+    }
+
+    &.-answer {
+        &:after {
+            border-top-color: $answer-color;
+        }
+    }
+
+    &.-idea {
+        &:after {
+            border-top-color: $idea-color;
+        }
+    }
+
+    &.-idea-answer {
+        &:after {
+            border-top-color: $idea-answer-color;
+        }
+    }
+
+    &.-group-idea {
+        &:after {
+            border-top-color: $group-idea-color;
+        }
+    }
+
+
+    &.-answer,
+    &.-idea-answer {
+
+        &:after {
+            float: right;
+            margin-left: 0;
+            margin-right: $gutter;
+        }
+    }
+
+    &__wrapper {
+        z-index: 10;
+        position: relative;
+        border-radius: $border-radius;
+        background-image: linear-gradient(rgba($white, .22) 0%, rgba($white, 0) 100%);
+        box-shadow: inset 0 1px 0 0 rgba($white, .5);
+        color: $tarawera;
+        overflow: hidden;
+
+        .cell {
+            padding: $distance $gutter;
+            vertical-align: middle;
+            display: table-cell;
+            width: 1%;
+        }
+
+        & {
+            background-color: $message-color;
+        }
+
+        .-message & {
+
+            a, p {
+                color: $black;
+            }
+        }
+
+        .-question & {
+            background-color: $question-color;
+
+            a, p {
+                color: $question-text-color;
+            }
+
+            .app-cloudlet__follow {
+                background-color: darken($question-color, 8%);
+            }
+        }
+
+        .-answer & {
+            background-color: $answer-color;
+            color: $tundora;
+
+            a, p {
+                color: $answer-text-color;
+            }
+
+            .app-cloudlet__follow {
+                background-color: darken($answer-color, 8%);
+            }
+
+            .app-answer__order span {
+                background-color: rgba($verdun-green, .5);
+            }
+        }
+
+        .-idea & {
+            background-color: $idea-color;
+
+            .app-cloudlet__follow {
+                background-color: darken($idea-color, 8%);
+            }
+
+            a, p {
+                color: $idea-text-color;
+            }
+        }
+
+        .-idea-answer & {
+            background-color: $idea-answer-color;
+
+            .app-cloudlet__follow {
+                background-color: darken($idea-answer-color, 8%);
+            }
+
+            a, p {
+                color: $idea-text-color;
+            }
+        }
+
+        .-group-idea & {
+            background-color: $group-idea-color;
+
+            .app-cloudlet__follow {
+                background-color: darken($group-idea-color, 8%);
+            }
+
+            a, p {
+                color: $idea-text-color;
+            }
+        }
+    }
+
+    &__container {
+        position: relative;
+        z-index: 10;
+        //display: table;
+        width: 100%;
+
+        & + .app-cloudlet__container {
+            border-top: 1px solid rgba($black, .1);
+            box-shadow: inset 0 1px 0 0 rgba($white, .2);
+        }
+    }
+
+    &__indicator {
+        display: table-cell;
+        width: 1%;
+        vertical-align: middle;
+        padding: $distance $gutter;
+
+        & + .app-cloudlet__content .app-cloudlet__content__box {
+            padding-left: 0;
+        }
+
+        > span {
+            display: block;
+            width: 32px;
+        }
+
+        .icon {
+            fill: rgba(black, .15);
+            width: inherit;
+        }
+
+        .text {
+            margin-top: 5px;
+            display: block;
+            text-align: center;
+            font-size: rem-calc($english);
+            color: $white;
+        }
+
+        &.-rate1,
+        &.-rate2,
+        &.-rate3,
+        &.-rate4 {
+
+            &.app-cloudlet__indicator {
+                padding: $distance/2 $gutter/2;
+            }
+
+            > span {
+                width: 25px;
+
+                .icon {
+                    fill: $white;
+                    width: inherit;
+                    height: 25px;
+                    display: block;
+                    margin: 0 auto;
+                }
+            }
+
+            & + .app-cloudlet__content .app-cloudlet__content__box {
+                padding-left: $gutter;
+            }
+        }
+
+        &.-rate1 {
+            background-color: $group-idea-rate-vote-1-color;
+        }
+        &.-rate2 {
+            background-color: $group-idea-rate-vote-2-color;
+        }
+        &.-rate3 {
+            background-color: $group-idea-rate-vote-3-color;
+        }
+        &.-rate4 {
+            background-color: $group-idea-rate-vote-4-color;
+        }
+    }
+
+    &__content {
+        display: table-cell;
+        width: 100%;
+        vertical-align: middle;
+
+        &__box {
+            box-sizing: border-box;
+            padding: $distance $gutter $distance $gutter; 
+            overflow: hidden;
+
+            .js-container & {
+                max-height: $cloudlet-max-height;
+            }
+
+            .-expanded & {
+                max-height: none;
+                padding-bottom: 44px;
+            }
+
+            [href] & {
+                //padding-right: $gutter*2;
+            }
+        }
+    }
+
+    &__follow {
+        display: none;
+        position: absolute;
+        z-index: 1;
+        top: 1px;
+        right: 0;
+        bottom: 0;
+        width: $gutter;
+        text-align: center;
+        background-color: darken($answer-color, 8%);
+
+        [href] & {
+            display: block;
+        }
+
+        .icon {
+            transform: translate(-50%, -50%);
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 8px;
+            height: 12px;
+            fill: rgba($white, .6);
+        }
+    }
+
+    &__more {
+        display: none;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 44px;
+        line-height: 60px;
+        text-align: center;
+        color: $black;
+        background-image: linear-gradient(rgba($white,0) 0%, rgba($message-color, 1) 55%);
+        text-align: center;
+        cursor: pointer;
+
+        .-collapsed & {
+            display: block;
+        }
+
+        .-expanded & {
+            display: block;
+            //position: relative;
+            margin-top: (-$distance);
+            line-height: 44px;
+            
+            &:after {
+                content: '▲';
+            }
+        }
+
+        &:after {
+            display: inline;
+            content: '▼';
+        }
+
+        .-question & {
+            background-image: linear-gradient(rgba($white,0) 0%, rgba($question-color, 1) 55%);
+        }
+        .-answer & {
+            background-image: linear-gradient(rgba($white,0) 0%, rgba($answer-color, 1) 55%);
+        }
+        .-idea & {
+            background-image: linear-gradient(rgba($white,0) 0%, rgba($idea-color, 1) 55%);
+        }
+        .-idea-answer & {
+            background-image: linear-gradient(rgba($white,0) 0%, rgba($idea-answer-color, 1) 55%);
+        }
+    }
+
+    h1 {
+        margin: 0 0 $distance/2;
+        color: $white;
+        font-size: rem-calc($great-primer);
+        text-transform: uppercase;
+    }
+}
+
+.app-cloudlet .app-answer {
+    border-bottom: 0;
+    margin-right: $gutter;
+
+    & + .app-answer {
+        border-top: 1px solid rgba($black, .1);
+        box-shadow: inset 0 1px 0 0 rgba($white, .2);
+    }
+}

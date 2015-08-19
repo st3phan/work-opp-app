@@ -1,0 +1,59 @@
+@keyframes fadeOut {
+    0% {
+        transform: translateY(-100%);
+    }      
+    10% {
+        transform: translateY(0%);
+    }
+    90% {
+        transform: translateY(0%);
+    }
+    100% {
+         transform: translateY(-100%)   
+    } 
+}
+
+.push-message-container {
+    box-sizing: border-box;
+    z-index: 10000;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    overflow: hidden;
+    padding: $distance $gutter;
+    background-color: rgba($push-message-color, .95);
+    color: $white;
+    box-shadow: 0 0 8px 0 rgba($black, .5);
+    transform: translateY(-100%);
+
+    &.-activate {
+        //display: table;
+        animation: fadeOut 4700ms ease-in 0s 1 forwards;
+    }
+
+    .icon-wrapper {
+        display: table-cell;
+        width: 1%;
+        vertical-align: middle;
+
+        span {
+            display: block;
+            width: 30px;
+        }
+
+        .icon {
+            fill: $white;
+            width: 30px;
+            height: 30px;
+        }
+    }
+
+    .text {
+        display: table-cell;
+        width: 100%;
+        padding: 0 0 0 $gutter;
+        overflow: hidden;
+        vertical-align: middle;
+    }
+}

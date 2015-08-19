@@ -1,0 +1,135 @@
+// We use this mixin to turn on/off HTML5 number spinners
+@mixin html5number($browser, $on:true) {
+    @if $on==false {
+        @if $browser==webkit {
+            -webkit-appearance: none;
+            margin: 0;
+        } @else if $browser==moz {
+            -moz-appearance: textfield;
+        }
+    }
+}
+
+@mixin fieldset {
+    padding: 0;
+    border: 0;
+
+    legend {
+        float: left;
+        width: 100%;
+        font-weight: bold;
+    }
+}
+
+@mixin form-element {
+    @include appearance;
+    box-sizing: border-box;
+    border-radius: $border-radius;
+    width: 100%;
+    height: 45px;
+    margin: 0 0 $distance;
+    padding: $distance/2 $gutter/2;
+    border: 0;
+    font-family: inherit;
+    outline: 0;
+    background-color: $white;
+
+    &.-error {
+        transition: background-color 0;
+        background-color: mix($form-error-color, $white, 10%);
+    }
+}
+
+.app-form {
+    margin: $distance 0 0;
+    padding: 0 $gutter $distance;
+
+    fieldset {
+        @include fieldset;
+
+        & + fieldset {
+            margin-top: $distance;
+            padding-top: $distance;
+            border-top: 2px solid rgba($white, .2);
+        }
+    }
+
+    input[type="text"],
+    input[type="password"],
+    input[type="search"],
+    input[type="tel"],
+    textarea {
+        @include form-element;
+    }
+
+    label {
+        cursor: pointer;
+    }
+    
+    input[type="file"] {
+        width: 100%;
+    }
+    
+    input[type="number"] {
+        @include html5number(moz, true);
+    }
+    
+    input[type="number"]::-webkit-inner-spin-button,
+    input[type="number"]::-webkit-outer-spin-button {
+        @include html5number(webkit, true);
+    }
+    
+    select {
+        @include appearance;
+        box-sizing: border-box;
+        border-radius: $border-radius;
+        text-indent: 0.01px;
+        width: 100%;
+        margin: 0 0 $distance;
+        padding: 0 30px 0 $gutter/2;
+        height: 45px;
+        overflow: hidden;
+        background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeD0iMTJweCIgeT0iMHB4IiB3aWR0aD0iMjRweCIgaGVpZ2h0PSIzcHgiIHZpZXdCb3g9IjAgMCA2IDMiIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDYgMyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+PHBvbHlnb24gcG9pbnRzPSI1Ljk5MiwwIDIuOTkyLDMgLTAuMDA4LDAgIi8+PC9zdmc+);
+        background-position: right center;
+        background-repeat: no-repeat;
+        background-color: $white;
+        line-height: normal;
+        border: 0;
+        outline: 0;
+    }
+    
+    textarea {
+        resize: vertical;
+    }
+
+    .msg {
+        display: none;
+        border-radius: 0 0 $border-radius $border-radius;
+        margin: (-$distance) $gutter/2 $distance;
+        padding: $distance/2 $gutter/2;
+        color: $white;
+        background-color: $form-error-color;
+        font-size: rem-calc($english);
+    }
+
+    .-error {
+        & + .msg {
+            display: block;
+        }
+    }
+    
+    p {
+        margin: 0 0 $distance;
+    }
+
+    .btn,
+    button {
+        display: block;
+        width: 100%;
+
+        & + .app-btn,
+        & + button {
+            margin-top: $distance;
+        }
+    }
+}

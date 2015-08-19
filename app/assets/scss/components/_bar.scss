@@ -1,0 +1,38 @@
+.app-bar {
+	border-radius: $border-radius;
+	display: table;
+	width: 100%;
+	overflow: hidden;
+	color: $white;
+	font-weight: bold;
+	background-color: rgba($black, .3);
+	text-align: left;
+
+	.val {
+		box-sizing: border-box;
+		border-radius: $border-radius;
+		background-image: linear-gradient(rgba($black,0) 0%,rgba($black, .33) 100%);
+		display: table-cell;
+		min-width: 20px;
+		padding: 5px;
+		background-color: $dodger-blue;
+		white-space: nowrap;
+		color: $white;
+		text-transform: uppercase;
+		line-height: .8;
+		font-size: rem-calc($english);
+
+		&.-empty {
+			width: 100%;
+			background: 0;
+			border-radius: 0 $border-radius $border-radius 0;
+		}
+	}
+
+	.amount {
+		box-sizing: border-box;
+		display: table-cell;
+		width: 100%;
+		padding: 2px 5px;
+	}
+}

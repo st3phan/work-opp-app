@@ -1,0 +1,98 @@
+.app-question__results {
+    padding: 0 0 $distance*2;
+}
+
+.app-question__result {
+    padding: 0 $gutter;
+    text-align: center;
+    color: $white;
+
+    & + .app-question__result {
+        margin-top: $distance;
+    }
+
+    .app-bar {
+        margin-top: $distance/2;
+    }
+}
+
+.app-question__option {
+    display: none;
+    border-bottom: 1px solid rgba($black, .3);
+    padding: $distance/2 $gutter;
+    text-align: center;
+    color: $white;
+    background-color: rgba($black, .2);
+    color: $white;
+    font-size: rem-calc($english);
+}
+
+.app-question__form {
+    padding: 0 $gutter;
+
+    textarea {
+        height: 120px;
+        resize: none;
+    }
+}
+
+.app-question__overlay {
+    z-index: 999;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: rgba($black, .8);
+}
+
+.app-question__confirm {
+    box-sizing: border-box;
+    background-image: radial-gradient(center, ellipse cover, rgba($white,.15) 0%,rgba($white,0) 100%);
+    z-index: 1001;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba($ebony-clay, .65);
+
+    a {
+        appearance: none;
+        display: block;
+        border: 0;
+        width: 100%;
+        height: $masthead-height;
+        line-height: $masthead-height;
+        background-color: rgba($woodsmoke, .8);
+        font-size: rem-calc($paragon);
+        text-transform: uppercase;
+        color: $amber;
+        font-weight: bold;
+        text-align: center;
+        white-space: nowrap;
+
+        &.-disabled {
+            color: rgba($amber, .2);
+
+            .icon {
+                fill: rgba($amber, .2);
+            }
+        }
+
+        > span {
+            display: inline-block;
+            position: relative;
+        }
+
+        .icon {
+            // transform: translateY(-50%);
+            // position: absolute;
+            // top: 50%;
+            // right: -32px - 5px;
+            margin-right: 5px;
+            fill: $amber;
+            width: 32px;
+            height: 32px;
+        }
+    }
+}

@@ -1,0 +1,82 @@
+.app-opp {
+    box-shadow: inset 0 1px 0 0 rgba($white, .1);
+    display: table;
+    width: 100%;
+    border-bottom: 1px solid rgba($black, .3);
+
+    &__wrapper {
+        display: block;
+        color: $white;
+
+        &.-active .app-opp__content:before {
+            content: "\2713 ";
+            margin-right: 5px;
+        }
+    }
+
+    &__count {
+        position: relative;
+        display: table-cell;
+        width: 30px;
+        vertical-align: middle;
+        padding: $distance 0 $distance $gutter;
+
+        span {
+            position: relative;
+            display: block;
+            width: 30px;
+            height: 30px;
+            text-align: center;
+            line-height: 0;
+
+            &.-empty {
+
+                .icon {
+                    color: transparent;
+                }
+            }
+
+            .icon {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                width: 45px;
+                height: 45px;
+                margin: -23px 0 0 -23px;
+                fill: $mirage;
+                color: $guardsman-red;
+            }
+        }
+    }
+
+    &__content {
+        display: table-cell;
+        width: 100%;
+        vertical-align: middle;
+        padding: $distance $gutter;
+    }
+
+    &__follow {
+        display: table-cell;
+        width: $gutter;
+        padding-right: $gutter;
+        vertical-align: middle;
+        text-align: center;
+
+        .icon {
+            width: 8px;
+            height: 12px;
+            fill: rgba($white, .6);
+        }
+    }
+
+    h1 {
+        margin: 0 0 $distance/2;
+        color: $white;
+        font-size: rem-calc($great-primer);
+    }
+
+    p {
+        color: rgba($white, .3);
+    }
+}
